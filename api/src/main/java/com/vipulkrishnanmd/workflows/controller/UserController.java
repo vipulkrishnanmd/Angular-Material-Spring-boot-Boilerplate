@@ -2,7 +2,7 @@ package com.vipulkrishnanmd.workflows.controller;
 
 import javax.validation.Valid;
 
-import com.vipulkrishnanmd.workflows.Exception.ResourceNotFoundException;
+import com.vipulkrishnanmd.workflows.exception.ResourceNotFoundException;
 import com.vipulkrishnanmd.workflows.model.User;
 import com.vipulkrishnanmd.workflows.repo.UserRepo;
 
@@ -46,7 +46,7 @@ public class UserController {
      * @return
      * @throws ResourceNotFoundException
      */
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> getUsersById(@PathVariable(value = "id") Long userId)
         throws ResourceNotFoundException {
         User user = userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
