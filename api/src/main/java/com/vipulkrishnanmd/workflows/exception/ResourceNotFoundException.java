@@ -1,4 +1,4 @@
-package com.vipulkrishnanmd.workflows.Exception;
+package com.vipulkrishnanmd.workflows.exception;
 
 public class ResourceNotFoundException extends Exception {
 
