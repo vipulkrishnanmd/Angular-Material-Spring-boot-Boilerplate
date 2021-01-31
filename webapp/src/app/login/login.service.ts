@@ -14,7 +14,7 @@ export class Login {
     console.log('reaching here');
     this.http
       // TODO: move this to env
-      .post('http://localhost:8080/api/v1/auth/login', {
+      .post('http://localhost:8080/api/auth/v1/login', {
         username,
         password,
       })

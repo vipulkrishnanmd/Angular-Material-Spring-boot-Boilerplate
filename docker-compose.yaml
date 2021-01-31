@@ -1,0 +1,28 @@
+version: '3'
+
+services: 
+    webapp:
+        build: ./webapp/
+        expose: 
+            - "80"
+        ports: 
+            - "4444:80"
+    api:
+        build: ./api/
+        expose: 
+            - "8080"
+        ports: 
+            - "8080:8080"
+        depends_on:
+            - db
+    db:
+        image: mysql
+        expose:
+            - "3306"
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./db/workflows.sql:/docker-entrypoint-initdb.d/1.sql"
+        environment:
+          MYSQL_ROOT_PASSWORD: abc
+        command: --default-authentication-plugin=mysql_native_password
